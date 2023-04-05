@@ -1,29 +1,35 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import { Card } from '@mui/material';
+import { CardContent, Grid, TextField } from '@material-ui/core';
 
 export default function AccountCredentialFields() {
+
   return (
-    <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1 },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField
-          required
-          id="outlined-required"
-          label="Username"
-          defaultValue=""
-        />
-        <TextField
-          id="outlined-password-input"
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-        />
-    </Box>
+
+      <Card>
+        <CardContent>
+          <Grid container spacing={1}>
+
+            <Grid item>
+              <TextField label="Username" placeholder="Username" variant='outlined' fullWidth/>
+            </Grid>
+          
+            <Grid item>
+             
+              <TextField
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+                variant='outlined'
+              />
+            </Grid>
+
+          </Grid>
+        </CardContent>
+      </Card>
+
+          // <TextField required id="outlined-required" label="Username" defaultValue=""/>
+          // <TextField id="outlined-password-input" label="Password" type="password" autoComplete="current-password"/>
+        
   );
 }
