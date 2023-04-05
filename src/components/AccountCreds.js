@@ -4,6 +4,16 @@ import { Button, CardContent, Grid, TextField } from '@material-ui/core';
 
 export default function AccountCredentialFields() {
 
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const handleClick=(e)=> {
+
+    e.preventDefault()
+    const user={username, password}
+    console.log(user.username)
+  }
+
   return (
 
     <Card style={{maxWidth:450, margin:'120px auto', padding:'20px 5px'}}>
@@ -12,15 +22,24 @@ export default function AccountCredentialFields() {
 
           <Grid container spacing={1}>
             <Grid item xs={12}>
-              <TextField label="Username" placeholder="Username" variant='outlined' fullWidth />
+              <TextField label="Username" placeholder="Username" variant='outlined' fullWidth 
+              
+              value = {username}
+              onChange={(e)=>setUsername(e.target.value)}
+              />
             </Grid>
 
             <Grid item xs={12}>
-              <TextField label="Password" type="password" autoComplete="current-password" variant='outlined'fullWidth />
+              <TextField label="Password" type="password" autoComplete="current-password" variant='outlined'fullWidth
+            
+              value = {password}
+              onChange={(e)=>setPassword(e.target.value)}
+              />
             </Grid>
 
             <Grid item xs={12}>
-              <Button type='submit' variant='contained' color='primary' fullWidth> Submit </Button>
+
+              <Button type='submit' variant='contained' color='tertiary' fullWidth onClick={handleClick}> Submit </Button>
             </Grid>
           </Grid>
 
@@ -28,9 +47,5 @@ export default function AccountCredentialFields() {
 
       </CardContent>
     </Card>
-
-    // <TextField required id="outlined-required" label="Username" defaultValue=""/>
-    // <TextField id="outlined-password-input" label="Password" type="password" autoComplete="current-password"/>
-
   );
 }
